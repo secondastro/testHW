@@ -24,9 +24,6 @@ public class UserTest {
         User user = new User();
         Assertions.assertNull(user.getLogin());
         Assertions.assertNull(user.getMail());
-        //Здесь не совсем понял зачем нужна такая проверка, зачем создавать пользователя без параметров
-        //Пришлось создать пустой конструктор, иначе идея ругается
-        //Возможно нужна была проверка на пустые строки, а не на создание объекта без параметров
     }
 
     @Test
@@ -35,7 +32,7 @@ public class UserTest {
         User user = new User(login1, mail1);
         String actualMail = user.getMail();
         Assertions.assertNotNull(actualMail);
-        Assertions.assertTrue(actualMail.contains("@") && actualMail.contains("."));
+        Assertions.assertEquals(actualMail, user.getMail());
     }
 
     @Test
